@@ -19,6 +19,7 @@ pipeline {
          }
       }
       stage('Build') {
+           bat "c://some/folder/run_build_windows.bat"
          steps {
             sh '''mvn clean package'''
          }
