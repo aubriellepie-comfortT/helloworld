@@ -8,7 +8,7 @@ pipeline {
 
      SERVICE_NAME = "helloworld"
      //REPOSITORY_TAG="minikube/aubriellepie-comfortT-${SERVICE_NAME}:${BUILD_ID}"
-     REPOSITORY_TAG="https://github.com/aubriellepie-comfortT/fleetman-webapp.git"
+      REPOSITORY_TAG="${YOUR_DOCKERHUB_USERNAME}/${ORGANIZATION_NAME}-${SERVICE_NAME}:${BUILD_ID}"
    }
 
    stages {
@@ -26,7 +26,7 @@ pipeline {
 
       stage('Build and Push Image') {
          steps {
-           bat 'docker image build -t "https://github.com/aubriellepie-comfortT/fleetman-webapp.git" .'
+           bat 'docker image build -t ${REPOSITORY_TAG} .'
          }
       }
 
