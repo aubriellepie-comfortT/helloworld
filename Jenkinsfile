@@ -19,21 +19,20 @@ pipeline {
          }
       }
       stage('Build') {
-           bat "c://some/folder/run_build_windows.bat"
          steps {
-            sh '''mvn clean package'''
+            bat '''mvn clean package'''
          }
       }
 
       stage('Build and Push Image') {
          steps {
-           sh 'docker image build -t ${REPOSITORY_TAG} .'
+           bat 'docker image build -t ${REPOSITORY_TAG} .'
          }
       }
 
       stage('Deploy to Cluster') {
           steps {
-                    sh 'envsubst < ${WORKSPACE}/deploy.yaml | kubectl apply -f -'
+                    bat 'envsubst < ${WORKSPACE}/deploy.yaml | kubectl apply -f -'
           }
       }
    }
