@@ -86,12 +86,10 @@ spec:
     spec:
       containers:
         - name: jenkins
-          image: jenkins:latest
+          image: jenkins/jenkins:lts-jdk11
           env:
             - name: JAVA_OPTS
-              value: >
-                {{ default "" .Values.master.javaOpts }}
-                {{ if .Values.master.sidecars.configAutoReload.enabled }} -Dcasc.reload.token=$(POD_NAME) {{ end }}
+              value: -Djenkins.install.runSetupWizard=false
           resources:
             limits:
               memory: 512Mi

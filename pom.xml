@@ -13,11 +13,11 @@
   <description>The most basic of Java programs.</description>
   <url>https://www.coveros.com/</url>
   <inceptionYear>2018</inceptionYear>
-
+<arguments>-Xmx2048m -Dhudson.lifecycle=hudson.lifecycle.WindowsServiceLifecycle -jar "%BASE%\jenkins.war" --httpPort=8080</arguments>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <jdk.version>1.8</jdk.version>
+    <jdk.version>18</jdk.version>
   <maven.compiler.release>13</maven.compiler.release>
   </properties>
 
