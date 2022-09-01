@@ -18,11 +18,11 @@ pipeline {
             git credentialsId: 'GitHub', url: "https://github.com/aubriellepie-comfortT/helloworld.git"
          }
       }
-      stage('Build') {
-         steps {
-         //   bat '''mvn clean package'''
-         }
-      }
+      // stage('Build') {
+      //    steps {
+      //       bat '''mvn clean package'''
+      //    }
+      // }
 
       stage('Build and Push Image') {
          steps {
